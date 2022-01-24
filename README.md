@@ -1,11 +1,11 @@
 # Author
---National Cheng Kung University Electrical Engineering - 陳育政<br />
+--National Cheng Kung University EE 113 - 陳育政<br />
 
 # Product Name
---Taiwan Stock Analyze with Python<br />
+--Taiwan Stock Price Analyzer with Python<br />
 
 # Last Edit Time
---2022/1/23 23:53<br />
+--2022/1/21 21:44<br />
 
 # Compile Environment
 --Windows 64(bit)<br />
@@ -13,12 +13,11 @@
 --PyCharm 2021.3.1<br />
 
 # Content
+--main.py (run the program)<br />
 
 
 # Way to Use
---Used to analyze TWSE stocks<br />
---help find the reverse point<br />
+
 
 # Download link
 #link:
-
