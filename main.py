@@ -5,4 +5,5 @@ analyze_tool = Analyze("\n=====TWSE Stock Reverse Point Analyzer=====\n", stock_
 
 analyze_tool.print_info()
 analyze_tool.open_file_read_data()
-analyze_tool.print_specified_data(4)
+analyze_tool.parse_data_and_analyze()
+analyze_tool.print_result()
