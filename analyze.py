@@ -63,34 +63,35 @@ class Analyze:
             count_week = 1
             sleep(1)
             for single_week_data in single_stock_data:
+                print(count_week)
                 if count_week > (len(single_stock_data) - 6):
                     s = single_week_data.split('/')
                     if count_week == len(single_stock_data) - 5:
-                        print(">> five:" + str(five_week_ago_high)+"/"+str(five_week_ago_low))
+                        print(">> five:" + str(five_week_ago_high) + "/" + str(five_week_ago_low))
                         five_week_ago_high.append(s[1])
                         five_week_ago_low.append(s[2])
                         count_week += 1
-                    if count_week == len(single_stock_data) - 4:
+                    elif count_week == len(single_stock_data) - 4:
                         print(">> four:" + str(four_week_ago_high) + "/" + str(four_week_ago_low))
                         four_week_ago_high.append(s[1])
                         four_week_ago_low.append(s[2])
                         count_week += 1
-                    if count_week == len(single_stock_data) - 3:
+                    elif count_week == len(single_stock_data) - 3:
                         print(">> three:" + str(three_week_ago_high) + "/" + str(three_week_ago_low))
                         three_week_ago_high.append(s[1])
                         three_week_ago_low.append(s[2])
                         count_week += 1
-                    if count_week == len(single_stock_data) - 2:
+                    elif count_week == len(single_stock_data) - 2:
                         print(">> two:" + str(two_week_ago_high) + "/" + str(two_week_ago_low))
                         two_week_ago_high.append(s[1])
                         two_week_ago_low.append(s[2])
                         count_week += 1
-                    if count_week == len(single_stock_data) - 1:
+                    elif count_week == len(single_stock_data) - 1:
                         print(">> one:" + str(one_week_ago_high) + "/" + str(one_week_ago_low))
                         one_week_ago_high.append(s[1])
                         one_week_ago_low.append(s[2])
                         count_week += 1
-                    if count_week == len(single_stock_data):
+                    elif count_week == len(single_stock_data):
                         print(">> now:" + str(this_week_high) + "/" + str(this_week_low))
                         this_week_high.append(s[1])
                         this_week_low.append(s[2])
@@ -99,21 +100,28 @@ class Analyze:
                     count_week += 1
             print("=============================================")
         print(colored(">> Almost there...", 'green'))
-        sleep(1)
+        sleep(2)
         print(colored(">> Week data parsing completely\n", 'yellow', attrs=['bold']))
         print(colored(">> Start data analyzing", 'yellow', attrs=['bold']))
         for i in range(0, 6):
             print(colored(">> Stock " + str(self.stock_list[i]) + " analyzing", 'green'))
-            if self.reverse_in_three_weeks(this_week_high[i], this_week_low[i], one_week_ago_high[i], one_week_ago_low[i], two_week_ago_high[i], two_week_ago_low[i]):
+            if self.reverse_in_three_weeks(float(this_week_high[i]), float(this_week_low[i]), float(one_week_ago_high[i]), float(one_week_ago_low[i]), float(two_week_ago_high[i]),
+                                           float(two_week_ago_low[i])):
                 self.result_list.append(True)
-            elif self.reverse_in_four_weeks(this_week_high[i], this_week_low[i], one_week_ago_high[i], one_week_ago_low[i], two_week_ago_high[i], two_week_ago_low[i], three_week_ago_high[i],
-                                            three_week_ago_low[i]):
+            elif self.reverse_in_four_weeks(float(this_week_high[i]), float(this_week_low[i]), float(one_week_ago_high[i]), float(one_week_ago_low[i]), float(two_week_ago_high[i]),
+                                            float(two_week_ago_low[i]),
+                                            float(three_week_ago_high[i]),
+                                            float(three_week_ago_low[i])):
                 self.result_list.append(True)
-            elif self.reverse_in_five_weeks(this_week_high[i], this_week_low[i], one_week_ago_high[i], one_week_ago_low[i], two_week_ago_high[i], two_week_ago_low[i], three_week_ago_high[i],
-                                            three_week_ago_low[i], four_week_ago_high[i], four_week_ago_low[i]):
+            elif self.reverse_in_five_weeks(float(this_week_high[i]), float(this_week_low[i]), float(one_week_ago_high[i]), float(one_week_ago_low[i]), float(two_week_ago_high[i]),
+                                            float(two_week_ago_low[i]),
+                                            float(three_week_ago_high[i]),
+                                            float(three_week_ago_low[i]), float(four_week_ago_high[i]), float(four_week_ago_low[i])):
                 self.result_list.append(True)
-            elif self.reverse_in_six_weeks(this_week_high[i], this_week_low[i], one_week_ago_high[i], one_week_ago_low[i], two_week_ago_high[i], two_week_ago_low[i], three_week_ago_high[i],
-                                           three_week_ago_low[i], four_week_ago_high[i], four_week_ago_low[i], five_week_ago_high, five_week_ago_low):
+            elif self.reverse_in_six_weeks(float(this_week_high[i]), float(this_week_low[i]), float(one_week_ago_high[i]), float(one_week_ago_low[i]), float(two_week_ago_high[i]),
+                                           float(two_week_ago_low[i]),
+                                           float(three_week_ago_high[i]),
+                                           float(three_week_ago_low[i]), float(four_week_ago_high[i]), float(four_week_ago_low[i]), float(five_week_ago_high[i]), float(five_week_ago_low[i])):
                 self.result_list.append(True)
             else:
                 self.result_list.append(False)
@@ -124,8 +132,8 @@ class Analyze:
         print(colored("=====Final Reverse Point Result=====\n", 'yellow', attrs=['bold']))
         for i in range(0, 6):
             output = str(self.stock_list[i]) + " >> "
-            if self.result_list[i] == True:
-                print(output + colored("True", 'green'))
+            if self.result_list[i]:
+                print(output + colored("True", 'green', attrs=['bold']))
             else:
                 print(output + colored("False", 'red'))
         print(colored("====================================\n", 'yellow', attrs=['bold']))
