@@ -20,4 +20,4 @@
 --execute the main.py
 
 # Download link
-#link:
+#link: https://github.com/ZardForever1009/TWSE_Analyze/releases/tag/v1.0.0
