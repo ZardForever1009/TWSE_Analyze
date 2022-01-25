@@ -14,10 +14,10 @@
 
 # Content
 --main.py (run the program)<br />
-
+--analyze.py (analyze and find reverse points)<br />
 
 # Way to Use
-
+--execute the main.py
 
 # Download link
 #link:

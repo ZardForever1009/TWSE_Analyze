@@ -63,42 +63,34 @@ class Analyze:
             count_week = 1
             sleep(1)
             for single_week_data in single_stock_data:
-                print(count_week)
                 if count_week > (len(single_stock_data) - 6):
                     s = single_week_data.split('/')
                     if count_week == len(single_stock_data) - 5:
-                        print(">> five:" + str(five_week_ago_high) + "/" + str(five_week_ago_low))
                         five_week_ago_high.append(s[1])
-                        five_week_ago_low.append(s[2])
+                        five_week_ago_low.append(s[2].replace('\n', ''))
                         count_week += 1
                     elif count_week == len(single_stock_data) - 4:
-                        print(">> four:" + str(four_week_ago_high) + "/" + str(four_week_ago_low))
                         four_week_ago_high.append(s[1])
-                        four_week_ago_low.append(s[2])
+                        four_week_ago_low.append(s[2].replace('\n', ''))
                         count_week += 1
                     elif count_week == len(single_stock_data) - 3:
-                        print(">> three:" + str(three_week_ago_high) + "/" + str(three_week_ago_low))
                         three_week_ago_high.append(s[1])
-                        three_week_ago_low.append(s[2])
+                        three_week_ago_low.append(s[2].replace('\n', ''))
                         count_week += 1
                     elif count_week == len(single_stock_data) - 2:
-                        print(">> two:" + str(two_week_ago_high) + "/" + str(two_week_ago_low))
                         two_week_ago_high.append(s[1])
-                        two_week_ago_low.append(s[2])
+                        two_week_ago_low.append(s[2].replace('\n', ''))
                         count_week += 1
                     elif count_week == len(single_stock_data) - 1:
-                        print(">> one:" + str(one_week_ago_high) + "/" + str(one_week_ago_low))
                         one_week_ago_high.append(s[1])
-                        one_week_ago_low.append(s[2])
+                        one_week_ago_low.append(s[2].replace('\n', ''))
                         count_week += 1
                     elif count_week == len(single_stock_data):
-                        print(">> now:" + str(this_week_high) + "/" + str(this_week_low))
                         this_week_high.append(s[1])
-                        this_week_low.append(s[2])
+                        this_week_low.append(s[2].replace('\n', ''))
                         count_week += 1
                 else:
                     count_week += 1
-            print("=============================================")
         print(colored(">> Almost there...", 'green'))
         sleep(2)
         print(colored(">> Week data parsing completely\n", 'yellow', attrs=['bold']))
