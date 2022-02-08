@@ -1,5 +1,5 @@
 # Author
---National Cheng Kung University EE 113 - 陳育政<br />
+--National Cheng Kung University EE 113 - Eason<br />
 
 # Product Name
 --Taiwan Stock Price Analyzer with Python<br />
